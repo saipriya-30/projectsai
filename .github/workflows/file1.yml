@@ -22,10 +22,10 @@ jobs:
 
       - name: create release bundle
         run: |
-          mkdir -p release
-          cp -f package.json release/
-          cp -f file1.js release/
-           cd release
+          mkdir -p dist
+          cp -f package.json dist/
+          cp -f file1.js dist/
+           cd dist
            zip -r ../express-app.zip .
 
       - name: Upload artifact
