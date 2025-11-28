@@ -23,7 +23,8 @@ jobs:
       - name: create release bundle
         run: |
           mkdir -p release
-          cp -r file1.js package.json release/
+          cp -f package.json release/
+          cp -f file1.js release/
            cd release
            zip -r ../express-app.zip
 
