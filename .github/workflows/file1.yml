@@ -20,14 +20,18 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # - name: Build project
-      #   run: npm run build
+      - name: create release bundle
+         run:|
+          mkdir -p release
+          cp -f file1.js package.json release/
+           cd release
+           zip -f ../express-app.zip
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: release-build
-          path: dist/
+          path: dist/express-app.zip
 
   publish:
     runs-on: ubuntu-latest
