@@ -21,7 +21,7 @@ jobs:
         run: npm install
 
       - name: create release bundle
-         run:|
+        run: |
           mkdir -p release
           cp -f file1.js package.json release/
            cd release
