@@ -25,7 +25,7 @@ jobs:
           mkdir -p release
           cp -f file1.js package.json release/
            cd release
-           zip -f ../express-app.zip
+           zip -r ../express-app.zip
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
