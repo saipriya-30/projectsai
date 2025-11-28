@@ -1,13 +1,20 @@
-// server.js
-const http = require('http');
+// app.js
+const express = require("express");
+const app = express();
 
-const PORT = 3000;
+app.use(express.json());
 
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end("Hello from Node.js server!");
+// GET endpoint
+app.get("/", (req, res) => {
+  res.json({ message: "Hello from Express API!" });
 });
 
-server.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+// POST endpoint
+app.post("/user", (req, res) => {
+  const user = req.body;
+  res.json({ received: user });
 });
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
