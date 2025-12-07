@@ -1,34 +1,13 @@
 name: Summarize new issues
 
 on:
-  issues:
+ pull_request:
     types: [opened]
 
 jobs:
-  summary:
-    runs-on: ubuntu-latest
-    permissions:
-      issues: write
-      models: read
-      contents: read
+     AddingnewAIfeature:
+       - name: AI-based PR Reviewer & Summarizer with Chat Capabilities
+         uses: coderabbitai/ai-pr-reviewer@1.16.2
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
 
-      - name: Run AI inference
-        id: inference
-        uses: actions/ai-inference@v1
-        with:
-          prompt: |
-            Summarize the following GitHub issue in one paragraph:
-            Title: ${{ github.event.issue.title }}
-            Body: ${{ github.event.issue.body }}
-
-      - name: Comment with AI summary
-        run: |
-          gh issue comment $ISSUE_NUMBER --body '${{ steps.inference.outputs.response }}'
-        env:
-          GH_TOKEN: ${{ secrets.MY_NEW_TOKEN }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
-          RESPONSE: ${{ steps.inference.outputs.response }}
+   
