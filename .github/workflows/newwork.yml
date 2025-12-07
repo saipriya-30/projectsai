@@ -17,6 +17,6 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
-   uses: saipriya-30/projectgit/.github/workflows/blank.yml@main
+   uses: saipriya-30/projectgit/.github/workflows/blank.yml@V1.0
 
     
